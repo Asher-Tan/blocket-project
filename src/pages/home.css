@@ -30,3 +30,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.home {
+  max-width: 720px;
+  margin: 0 auto;
+}
