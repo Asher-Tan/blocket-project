@@ -10,7 +10,7 @@
     "bundle": "tsc --noEmit && npm run bundle:client && npm run bundle:api",
     "bundle:client": "vite build",
     "bundle:api": "npm run clean && tsc -p tsconfig.api.json && blocklet bundle --compact --create-release",
-    "deploy": "npm run bundle && blocklet deploy .blocklet/bundle",
+    "deploy": "npm run bundle && blocklet deploy .blocklet/bundle --app-id zNKaZg7SEHGBmCJMkWLxqSVo7oML6o89Ffk2",
     "upload": "npm run bundle && blocklet upload .blocklet/release/blocklet.json",
     "prepare": "npx simple-git-hooks",
     "bump-version": "zx --quiet scripts/bump-version.mjs"
@@ -43,12 +43,16 @@
     "@ocap/client": "^1.18.126",
     "@ocap/mcrypto": "^1.18.126",
     "@ocap/wallet": "^1.18.126",
+    "@prisma/client": "^5.17.0",
+    "antd": "^5.19.2",
     "axios": "^1.7.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv-flow": "^4.1.0",
     "express": "^4.19.2",
-    "express-async-errors": "^3.1.1"
+    "express-async-errors": "^3.1.1",
+    "express-validator": "^7.1.0",
+    "prisma": "^5.17.0"
   },
   "devDependencies": {
     "@arcblock/eslint-config": "^0.3.2",
