@@ -10,7 +10,7 @@
     "bundle": "tsc --noEmit && npm run bundle:client && npm run bundle:api",
     "bundle:client": "vite build",
     "bundle:api": "npm run clean && tsc -p tsconfig.api.json && blocklet bundle --compact --create-release",
-    "deploy": "npm run bundle && blocklet deploy .blocklet/bundle --app-id zNKaZg7SEHGBmCJMkWLxqSVo7oML6o89Ffk2",
+    "deploy": "npm run bundle && blocklet deploy .blocklet/bundle --app-id zNKmJx1qBNHe52U9TeYWuFeAk8myC677LURj",
     "upload": "npm run bundle && blocklet upload .blocklet/release/blocklet.json",
     "prepare": "npx simple-git-hooks",
     "bump-version": "zx --quiet scripts/bump-version.mjs"
