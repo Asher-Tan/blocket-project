@@ -58,50 +58,35 @@ const Profile: React.FC<Props> = function Profile(props) {
 
   return (
     <div className="profile">
-      {isEdit ? (
-        <Form
-          form={form}
-          key="editForm"
-          onFinish={onFinish}
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          style={{ maxWidth: 600 }}
-          autoComplete="off">
-          <Form.Item label="用户名" name="name" rules={[{ required: true, message: '请输入用户名' }]}>
-            <Input />
-          </Form.Item>
-          <Form.Item
-            label="邮箱"
-            name="email"
-            rules={[
-              { required: true, message: '请输入邮箱' },
-              { type: 'email', message: '请输入正确的邮箱' },
-            ]}>
-            <Input />
-          </Form.Item>
-          <Form.Item
-            label="手机号"
-            name="phone"
-            rules={[
-              { required: true, message: '请输入手机号' },
-              { pattern: /^1[3456789]\d{9}$/, message: '请输入正确的手机号' },
-            ]}>
-            <Input />
-          </Form.Item>
-        </Form>
-      ) : (
-        <Form labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} style={{ maxWidth: 600 }}>
-          <Form.Item label="用户名" name="name">
-            <div className="text">{profile?.name}</div>
-          </Form.Item>
-          <Form.Item label="邮箱" name="email">
-            <div className="text">{profile?.email}</div>
-          </Form.Item>
-          <Form.Item label="手机号" name="phone">
-            <div className="text">{profile?.phone}</div>
-          </Form.Item>
-        </Form>
-      )}
+      <Form
+        form={form}
+        onFinish={onFinish}
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        style={{ maxWidth: 600 }}
+        autoComplete="off">
+        <Form.Item label="用户名" name="name" rules={[{ required: true, message: '请输入用户名' }]}>
+          {isEdit ? <Input /> : <div className="field-value">{profile?.name}</div>}
+        </Form.Item>
+        <Form.Item
+          label="邮箱"
+          name="email"
+          rules={[
+            { required: true, message: '请输入邮箱' },
+            { type: 'email', message: '请输入正确的邮箱' },
+          ]}>
+          {isEdit ? <Input /> : <div className="field-value">{profile?.email}</div>}
+        </Form.Item>
+        <Form.Item
+          label="手机号"
+          name="phone"
+          rules={[
+            { required: true, message: '请输入手机号' },
+            { pattern: /^1[3456789]\d{9}$/, message: '请输入正确的手机号' },
+          ]}>
+          {isEdit ? <Input /> : <div className="field-value">{profile?.phone}</div>}
+        </Form.Item>
+      </Form>
       <div className="actions">
         <Button onClick={onEdit}>{isEdit ? '取消' : '编辑'}</Button>
         {isEdit && (
